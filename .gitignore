@@ -1,8 +1,2 @@
-_site/
-*.swp
-*.~vsd
-\#*\#
-*~
-.DS_Store
-Gemfile.lock
 .ida
+_site
