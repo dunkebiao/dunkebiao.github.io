@@ -1,9 +1,5 @@
-_site/
-*.swp
-*.~vsd
-\#*\#
-*~
-.DS_Store
+_site
+.sass-cache
+.jekyll-metadata
 Gemfile.lock
 .ida
-vendor
