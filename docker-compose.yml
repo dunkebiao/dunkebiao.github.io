@@ -1,0 +1,11 @@
+version: "3"
+services:
+  blog:
+    build:
+      context: ./
+    image: blog
+    command: jekyll serve -w --host=0.0.0.0
+    volumes:
+      - $PWD:/var/www
+    ports:
+      - 4000:4000
