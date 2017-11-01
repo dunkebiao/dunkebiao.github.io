@@ -1,0 +1,25 @@
+---
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: default
+---
+
+{% for post in site.posts %}
+    <div class = "card">
+    	<div  class = "date_label">
+            <div class="day_month">
+                {{ post.date | date:"%m/%d" }}
+            </div>
+            <div class="year">
+                {{ post.date | date:"%Y" }}
+            </div>
+        </div>
+        <h1>{{ post.title }}</h1>
+        <hr>
+    	{{ post.excerpt }}
+    	<div class = "read_more">
+    		<a class="fa fa-link" href="{{ site.baseurl }}{{ post.url }}">  查看全文&hellip;</a>
+    	</div>
+    </div>
+{% endfor %}

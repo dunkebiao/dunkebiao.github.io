@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ page.title }}</title>
+    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+    <meta name="author" content="{{ site.author.name }}">
+
+
+    <!-- Le styles -->
+    <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/assets/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+</head>
+
+<body>
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="nav-narrow">
+            <a class="brand" href="{{ site.baseurl }}/"><span class="fa fa-mortar-board (alias)">{{ site.title }}</span></a>
+            <ul class="nav">
+                {% for node in site.pages %}
+                    {% if "nav" == node.type %}
+                        {% if page.url == node.url %}
+                            <li class="active"><a href="{{ site.baseurl }}{{node.url}}" class="active">{{node.title}}</a></li>
+                        {% else %}
+                            <li><a href="{{ site.baseurl }}{{node.url}}">{{node.title}}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="container-narrow">
+
+    <div class="content">
+
+        <div class="row-fluid">
+            <div class="span12">
+                {{ content }}
+            </div>
+        </div>
+    </div>
+
+    <footer class="card clearfix">
+        <span style="font-size:30px;"class="fa fa-github pull-left"></span><a href="https://github.com/dunkebiao/dunkebiao.github.io" style="display:inline-block;padding-right:80px;border-right:1px solid #bbb">fork me on GitHub</a>
+        <p class="pull-right">&copy; 2011 {{ site.author.name }}
+            with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+            and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script src="{{  site.baseurl }}/assets/js/prettify.js"></script>
+<script src="//cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
