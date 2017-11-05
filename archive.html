@@ -1,0 +1,45 @@
+---
+layout: page
+title : 文章
+header : 所有文章
+type: nav
+---
+
+{% assign posts_collate = site.posts %}
+<div class="page card">
+    {% for post in posts_collate  %}
+        {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
+        {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+        {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
+        {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+
+        {% if forloop.first %}
+            <div class="hat_title">{{this_year}}</div>
+            <div class="post_list">
+            <h3>{{this_month}}</h3>
+            <ul>
+        {% endif %}
+                <li>
+                    <span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo;
+                    <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
+                </li>
+        {% if forloop.last %}
+            </ul>
+        {% else %}
+            {% if this_year != next_year %}
+                </ul>
+                </div>
+                <div class="hat_title">{{next_year}}</div>
+                <div class="post_list">
+                <h3>{{next_month}}</h3>
+                <ul>
+            {% else %}
+                {% if this_month != next_month %}
+                </ul>
+                <h3>{{next_month}}</h3>
+                <ul>
+                {% endif %}
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</div>
