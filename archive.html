@@ -9,9 +9,9 @@ type: nav
 <div class="page card">
     {% for post in posts_collate  %}
         {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
-        {% capture this_month %}{{ post.date | date: "%B" }}{% endcapture %}
+        {% capture this_month %}{{ post.date | date: "%b" }}{% endcapture %}
         {% capture next_year %}{{ post.previous.date | date: "%Y" }}{% endcapture %}
-        {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
+        {% capture next_month %}{{ post.previous.date | date: "%b" }}{% endcapture %}
 
         {% if forloop.first %}
             <div class="hat_title">{{this_year}}</div>
@@ -20,7 +20,7 @@ type: nav
             <ul>
         {% endif %}
                 <li>
-                    <span>{{ post.date | date: "%B %e, %Y" }}</span> &raquo;
+                    <span>{{ post.date | date: "%Y-%m-%d" }}</span> &raquo;
                     <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a>
                 </li>
         {% if forloop.last %}
