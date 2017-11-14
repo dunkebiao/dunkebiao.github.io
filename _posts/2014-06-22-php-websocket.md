@@ -4,8 +4,8 @@ title:  "php 实现的一个socket"
 categories: php
 tag: php
 ---
----
 websocket服务类
+
 Author: dun  time：2014-06-22
 
 ```
@@ -271,3 +271,4 @@ class Socket
 
 $s = new Socket('127.0.0.1','12306');
 $s->run();
+```
