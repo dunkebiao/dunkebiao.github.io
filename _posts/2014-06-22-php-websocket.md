@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "php 实现的一个socket"
+title:  "php 实现的一个websocket服务"
 categories: php
 tag: php
 ---
